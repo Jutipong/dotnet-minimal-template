@@ -1,4 +1,8 @@
 
-bin/
+api/bin/
 
-obj/
+api/obj/
+
+test/bin/
+
+test/obj/
