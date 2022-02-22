@@ -1,13 +1,19 @@
+using Api.Features.Todo;
 using Carter;
 
 var builder = WebApplication.CreateBuilder(args);
 //AddCarter
 builder.Services.AddCarter();
-
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+//Add Service
+//*****User AddSingleton for static data test
+//*****Default Use AddScoped
+builder.Services.AddSingleton<ITodoService, TodoService>();
+
 
 var app = builder.Build();
 //MapCarter
@@ -25,6 +31,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
 
 app.UseHttpsRedirection();
 app.Run();
