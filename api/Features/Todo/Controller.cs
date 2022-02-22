@@ -1,7 +1,7 @@
 using Carter;
 
 namespace Api.Features.Todo;
-public class TodoModule : ICarterModule
+public class Controller : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
