@@ -18,6 +18,7 @@ namespace api.Entities
         }
 
         public virtual DbSet<Address> Addresses { get; set; } = null!;
+        public virtual DbSet<Todo> Todos { get; set; } = null!;
         public virtual DbSet<User> Users { get; set; } = null!;
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
@@ -25,6 +26,15 @@ namespace api.Entities
             modelBuilder.Entity<Address>(entity =>
             {
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
+            });
+
+            modelBuilder.Entity<Todo>(entity =>
+            {
+                entity.Property(e => e.CreateDate).HasDefaultValueSql("(getdate())");
+
+                entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
             });
 
             modelBuilder.Entity<User>(entity =>
