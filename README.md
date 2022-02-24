@@ -18,6 +18,12 @@ dotnet new mstest -o test
 dotnet sln add ./test/test.csproj
 ```
 
+## EF Core Install
+```bash
+dotnet tool install --global dotnet-ef
+dotnet add package Microsoft.EntityFrameworkCore.SqlServer
+```
+
 ## Extensions
 ```bash
 https://marketplace.visualstudio.com/items?itemName=adrianwilczynski.add-reference
@@ -35,3 +41,4 @@ https://marketplace.visualstudio.com/items?itemName=fernandoescolar.vscode-solut
 https://marketplace.visualstudio.com/items?itemName=VisualZoran.vz-dotnet-file-templates
 https://marketplace.visualstudio.com/items?itemName=VisualZoran.vz-file-templates
 ```
+
