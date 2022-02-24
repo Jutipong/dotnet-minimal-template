@@ -1,14 +1,5 @@
-namespace Api.Features.Todo;
-public interface ITodoService
-{
-    public ICollection<TodoModel> GetTodos();
-    public TodoModel? GetById(Guid id);
-    public TodoModel Create(string title);
-    public TodoModel? Update(TodoUpdateDto dto);
-    public bool Delete(Guid id);
-}
-
-public class TodoService : ITodoService
+namespace Api.Features.Todo.Service;
+public class Service : IService
 {
     private ICollection<TodoModel> mock = new List<TodoModel>{
         new TodoModel{ Id= Guid.NewGuid(), Title= "Todo 1", IsActive = true},

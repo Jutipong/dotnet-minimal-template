@@ -1,5 +1,5 @@
-using Api.Features.Todo;
 using Carter;
+using todo = Api.Features.Todo.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddCarter();//AddCarter
@@ -9,9 +9,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 //Add Service
-//*****User AddSingleton for static data test
-//*****Default Use AddScoped
-builder.Services.AddScoped<ITodoService, TodoService>();
+builder.Services.AddScoped<todo.IService, todo.Service>();
 
 var app = builder.Build();
 app.MapCarter(); //MapCarter
