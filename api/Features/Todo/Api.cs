@@ -28,12 +28,12 @@ public class TodoModule : ICarterModule
             return Results.Ok(await _service.CreateAsync(title));
         });
 
-        app.MapPut("api/todo", (Service.IService _service, TodoUpdateDto dto) =>
-        {
-            var todo = _service.Update(dto);
-            if (todo == null) return Results.NotFound();
-            return Results.Ok(todo);
-        });
+        app.MapPut("api/todo", async (Service.IService _service, TodoUpdateDto dto) =>
+         {
+             var todo = await _service.UpdateAsync(dto);
+             if (todo == null) return Results.NotFound();
+             return Results.Ok(todo);
+         });
 
         app.MapDelete("api/todo/{id}", async (Service.IService _service, Guid id) =>
         {

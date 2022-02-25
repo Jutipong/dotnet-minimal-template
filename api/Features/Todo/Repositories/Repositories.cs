@@ -23,9 +23,14 @@ public class Repositories : IRepositories
     }
 
 
-    public EfModel.Todo Update(EfModel.Todo todo)
+    public async Task<EfModel.Todo?> UpdateAsync(EfModel.Todo todo)
     {
-        _db.Todos.Update(todo);
+        var data = await _db.Todos.FirstOrDefaultAsync(r => r.Id == todo.Id);
+        if (data == null) return null;
+
+        data.Title = todo.Title;
+        data.UpdateDate = DateTime.Now;
+        _db.Todos.Update(data);
         _db.SaveChanges();
         return todo;
     }

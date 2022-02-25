@@ -31,13 +31,16 @@ public class Service : IService
             Title = title,
             CreateDate = new DateTime(),
             CreateBy = "system",
-            IsActive = true
         });
     }
 
-    public EfModel.Todo Update(TodoUpdateDto dto)
+    public async Task<EfModel.Todo?> UpdateAsync(TodoUpdateDto dto)
     {
-        return _repo.Update(new EfModel.Todo { Id = dto.Id, Title = dto.Title });
+        return await _repo.UpdateAsync(new EfModel.Todo
+        {
+            Id = dto.Id,
+            Title = dto.Title
+        });
     }
 
     public async Task<bool> DeleteAsync(Guid id)
