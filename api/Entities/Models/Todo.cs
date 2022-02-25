@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace api.Entities.Models
 {
-    [Keyless]
     [Table("Todo")]
     public partial class Todo
     {
+        [Key]
         public Guid Id { get; set; }
         [StringLength(100)]
         public string Title { get; set; } = null!;

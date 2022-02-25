@@ -1,4 +1,8 @@
-﻿using api.Entities.Models;
+﻿using System;
+using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
+using api.Entities.Models;
 
 namespace api.Entities
 {
@@ -26,9 +30,9 @@ namespace api.Entities
 
             modelBuilder.Entity<Todo>(entity =>
             {
-                entity.Property(e => e.CreateDate).HasDefaultValueSql("(getdate())");
-
                 entity.Property(e => e.Id).HasDefaultValueSql("(newid())");
+
+                entity.Property(e => e.CreateDate).HasDefaultValueSql("(getdate())");
 
                 entity.Property(e => e.IsActive).HasDefaultValueSql("((1))");
             });
