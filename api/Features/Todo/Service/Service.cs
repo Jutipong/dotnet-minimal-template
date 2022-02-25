@@ -1,3 +1,5 @@
+using Api.Features.Todo.Repositories;
+
 namespace Api.Features.Todo.Service;
 public class Service : IService
 {
@@ -6,42 +8,40 @@ public class Service : IService
         new TodoModel{ Id= Guid.NewGuid(), Title= "Todo 2", IsActive = true},
     };
 
-    public ICollection<TodoModel> GetTodos()
+    private readonly IRepositories _repo;
+    public Service(IRepositories repo)
     {
-        return mock;
+        _repo = repo;
     }
 
-    public TodoModel? GetById(Guid id)
+    public async Task<IList<EfModel.Todo>> GetTodosAsync()
     {
-        var result = mock.FirstOrDefault(r => r.Id == id);
-        return result;
+        return await _repo.GetTodosAsync();
     }
 
-    public TodoModel Create(string title)
+    public async Task<EfModel.Todo?> GetByIdAsync(Guid id)
     {
-        var create = new TodoModel
+        return await _repo.GetByidAsync(id);
+    }
+
+    public async Task<EfModel.Todo> CreateAsync(string title)
+    {
+        return await _repo.CreateAsync(new EfModel.Todo
         {
-            Id = Guid.NewGuid(),
             Title = title,
+            CreateDate = new DateTime(),
+            CreateBy = "system",
             IsActive = true
-        };
-        mock.Add(create);
-        return create;
+        });
     }
 
-    public TodoModel? Update(TodoUpdateDto dto)
+    public EfModel.Todo Update(TodoUpdateDto dto)
     {
-        var todo = mock.FirstOrDefault(r => r.Id == dto.Id);
-        if (todo == null) return null;
-        todo.Title = dto.Title;
-        return todo;
+        return _repo.Update(new EfModel.Todo { Id = dto.Id, Title = dto.Title });
     }
 
-    public bool Delete(Guid id)
+    public async Task<bool> DeleteAsync(Guid id)
     {
-        var todo = mock.FirstOrDefault(r => r.Id == id);
-        if (todo == null) return false;
-        mock.Remove(todo);
-        return true;
+        return await _repo.DeleteAsync(id);
     }
 }

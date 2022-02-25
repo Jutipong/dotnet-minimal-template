@@ -1,7 +1,7 @@
 {
-  "files.exclude": {
-    "Api/bin": true,
-    "Api/obj": true,
-    "Test/obj": true
-  }
+  // "files.exclude": {
+  //   "Api/bin": true,
+  //   "Api/obj": true,
+  //   "Test/obj": true
+  // }
 }

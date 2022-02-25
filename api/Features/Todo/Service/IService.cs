@@ -1,9 +1,11 @@
+using Api.Features.Todo.Repositories;
+
 namespace Api.Features.Todo.Service;
 public interface IService
 {
-    public ICollection<TodoModel> GetTodos();
-    public TodoModel? GetById(Guid id);
-    public TodoModel Create(string title);
-    public TodoModel? Update(TodoUpdateDto dto);
-    public bool Delete(Guid id);
+    public Task<IList<EfModel.Todo>> GetTodosAsync();
+    public Task<EfModel.Todo?> GetByIdAsync(Guid id);
+    public Task<EfModel.Todo> CreateAsync(string title);
+    public EfModel.Todo Update(TodoUpdateDto dto);
+    public Task<bool> DeleteAsync(Guid id);
 }

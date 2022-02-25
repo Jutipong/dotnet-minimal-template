@@ -1,18 +1,24 @@
-using Carter;
-using todo = Api.Features.Todo.Service;
+using todo = Api.Features.Todo;
 
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddCarter();//AddCarter
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+builder.Services.AddCarter();//AddCarter
 
-//Add Service
-builder.Services.AddScoped<todo.IService, todo.Service>();
+//========== Register appsetting.json ==========//
+builder.Services.Configure<AppSittingModel>(builder.Configuration.GetSection("AppSettings"));
+//========== Register Connection Db ==========//
+builder.Services.AddDbContext<DbContexts>(o => o.UseSqlServer(builder.Configuration.GetConnectionString("DbContexts")));
+
+//========== Add Service and Repositories ==========//
+builder.Services.AddScoped<todo.Service.IService, todo.Service.Service>();
+builder.Services.AddScoped<todo.Repositories.IRepositories, todo.Repositories.Repositories>();
+
 
 var app = builder.Build();
-app.MapCarter(); //MapCarter
+app.MapCarter();//MapCarter
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
@@ -26,7 +32,6 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
-
 
 app.UseHttpsRedirection();
 app.Run();

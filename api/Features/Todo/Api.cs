@@ -11,21 +11,21 @@ public class TodoModule : ICarterModule
 
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapGet("/api/todos", (Service.IService _service) =>
+        app.MapGet("/api/todos", async (Service.IService _service) =>
         {
-            return Results.Ok(_service.GetTodos());
+            return Results.Ok(await _service.GetTodosAsync());
         });
 
-        app.MapGet("api/todo/{id}", (Service.IService _service, Guid id) =>
+        app.MapGet("api/todo/{id}", async (Service.IService _service, Guid id) =>
         {
-            var result = _service.GetById(id);
+            var result = await _service.GetByIdAsync(id);
             if (result == null) return Results.NotFound();
             return Results.Ok(result);
         });
 
-        app.MapPost("api/todo", (Service.IService _service, string title) =>
+        app.MapPost("api/todo", async (Service.IService _service, string title) =>
         {
-            return Results.Ok(_service.Create(title));
+            return Results.Ok(await _service.CreateAsync(title));
         });
 
         app.MapPut("api/todo", (Service.IService _service, TodoUpdateDto dto) =>
@@ -35,9 +35,9 @@ public class TodoModule : ICarterModule
             return Results.Ok(todo);
         });
 
-        app.MapDelete("api/todo/{id}", (Service.IService _service, Guid id) =>
+        app.MapDelete("api/todo/{id}", async (Service.IService _service, Guid id) =>
         {
-            return _service.Delete(id)
+            return await _service.DeleteAsync(id)
             ? Results.Ok(true)
             : Results.NotFound();
         });
