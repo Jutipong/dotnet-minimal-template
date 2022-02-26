@@ -1,5 +1,3 @@
-using Api.Features.Todo.Repositories;
-
 namespace Api.Features.Todo.Service;
 public interface IService
 {

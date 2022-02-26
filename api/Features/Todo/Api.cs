@@ -1,14 +1,6 @@
-using Carter;
-
 namespace Api.Features.Todo;
 public class TodoModule : ICarterModule
 {
-    // private readonly ITodoService _service;
-    // public TodoModule(ITodoService service)
-    // {
-    //     this._service = service;
-    // }
-
     public void AddRoutes(IEndpointRouteBuilder app)
     {
         app.MapGet("/api/todos", async (Service.IService _service) =>

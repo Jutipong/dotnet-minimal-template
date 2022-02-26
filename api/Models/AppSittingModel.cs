@@ -1,8 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-
 namespace Api.Models
 {
     public class AppSittingModel
@@ -17,13 +12,4 @@ namespace Api.Models
     {
         public string? AppContext { get; set; } = string.Empty;
     }
-
-
-    // public class AppSittingModel
-    // {
-    //     public class ConnectionString
-    //     {
-    //         public string AppContext { get; } = string.Empty;
-    //     }
-    // }
 }

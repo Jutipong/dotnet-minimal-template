@@ -3,11 +3,6 @@ using Api.Features.Todo.Repositories;
 namespace Api.Features.Todo.Service;
 public class Service : IService
 {
-    private ICollection<TodoModel> mock = new List<TodoModel>{
-        new TodoModel{ Id= Guid.NewGuid(), Title= "Todo 1", IsActive = true},
-        new TodoModel{ Id= Guid.NewGuid(), Title= "Todo 2", IsActive = true},
-    };
-
     private readonly IRepositories _repo;
     public Service(IRepositories repo)
     {
