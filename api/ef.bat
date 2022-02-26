@@ -6,6 +6,7 @@ set user=sa
 set password=p@ssw0rd
 set context_name=DbContexts
 set context_dir=.\Entities 
+set name_space=Api.Entities.Models
 set output_dir=.\Entities\Models
 
 dotnet ef dbcontext scaffold "Server=%host%,%port%;Initial Catalog=%dbname%;User ID=%user%; Password=%password%; Timeout=%timeout%;" ^
@@ -15,5 +16,6 @@ Microsoft.EntityFrameworkCore.SqlServer ^
 --no-onconfiguring ^
 --context %context_name% ^
 --context-dir %context_dir% ^
+--namespace %name_space% ^
 --output-dir %output_dir% ^
 --force
