@@ -7,15 +7,15 @@ public class Repositories : IRepositories
         _db = db;
     }
 
-    public async Task<IList<EfModel.Todo>> GetTodosAsync()
+    public async Task<IList<Ef.Todo>> GetTodosAsync()
     {
         return await _db.Todos.ToListAsync();
     }
 
-    public async Task<EfModel.Todo?> GetByidAsync(Guid id)
+    public async Task<Ef.Todo?> GetByidAsync(Guid id)
     => await _db.Todos.FirstOrDefaultAsync(r => r.Id == id);
 
-    public async Task<EfModel.Todo> CreateAsync(EfModel.Todo todo)
+    public async Task<Ef.Todo> CreateAsync(Ef.Todo todo)
     {
         await _db.Todos.AddAsync(todo);
         await _db.SaveChangesAsync();
@@ -23,7 +23,7 @@ public class Repositories : IRepositories
     }
 
 
-    public async Task<EfModel.Todo?> UpdateAsync(EfModel.Todo todo)
+    public async Task<Ef.Todo?> UpdateAsync(Ef.Todo todo)
     {
         var data = await _db.Todos.FirstOrDefaultAsync(r => r.Id == todo.Id);
         if (data == null) return null;

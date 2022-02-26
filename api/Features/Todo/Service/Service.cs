@@ -14,19 +14,19 @@ public class Service : IService
         _repo = repo;
     }
 
-    public async Task<IList<EfModel.Todo>> GetTodosAsync()
+    public async Task<IList<Ef.Todo>> GetTodosAsync()
     {
         return await _repo.GetTodosAsync();
     }
 
-    public async Task<EfModel.Todo?> GetByIdAsync(Guid id)
+    public async Task<Ef.Todo?> GetByIdAsync(Guid id)
     {
         return await _repo.GetByidAsync(id);
     }
 
-    public async Task<EfModel.Todo> CreateAsync(string title)
+    public async Task<Ef.Todo> CreateAsync(string title)
     {
-        return await _repo.CreateAsync(new EfModel.Todo
+        return await _repo.CreateAsync(new Ef.Todo
         {
             Title = title,
             CreateDate = new DateTime(),
@@ -34,9 +34,9 @@ public class Service : IService
         });
     }
 
-    public async Task<EfModel.Todo?> UpdateAsync(TodoUpdateDto dto)
+    public async Task<Ef.Todo?> UpdateAsync(TodoUpdateDto dto)
     {
-        return await _repo.UpdateAsync(new EfModel.Todo
+        return await _repo.UpdateAsync(new Ef.Todo
         {
             Id = dto.Id,
             Title = dto.Title
