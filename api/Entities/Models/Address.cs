@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace api.Entities.Models
+namespace Api.Entities.Models
 {
     [Table("Address")]
     public partial class Address
