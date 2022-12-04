@@ -6,3 +6,5 @@ api/obj/
 test/bin/
 
 test/obj/
+
+.vs/
