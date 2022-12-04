@@ -9,8 +9,8 @@ set context_name_space=Entity
 set context_dir=.\Entity
 set context_name=DBContexts
 
-set name_space=Entity.Model
-set output_dir=.\Entity\Model
+set name_space=Entity.Models
+set output_dir=.\Entity\Models
 
 dotnet ef dbcontext scaffold "Server=%host%,%port%;Initial Catalog=%dbname%;User ID=%user%; Password=%password%; Timeout=%timeout%; TrustServerCertificate=true;" ^
 Microsoft.EntityFrameworkCore.SqlServer ^
