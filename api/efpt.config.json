@@ -1,0 +1,65 @@
+﻿{
+   "CodeGenerationMode": 3,
+   "ContextClassName": "DBContexts",
+   "ContextNamespace": "Entity2",
+   "DefaultDacpacSchema": null,
+   "FilterSchemas": false,
+   "IncludeConnectionString": false,
+   "ModelNamespace": "Model",
+   "OutputContextPath": ".\\Entity2",
+   "OutputPath": ".\\Entity2\\Models",
+   "PreserveCasingWithRegex": true,
+   "ProjectRootNamespace": "",
+   "Schemas": null,
+   "SelectedHandlebarsLanguage": 0,
+   "SelectedToBeGenerated": 0,
+   "Tables": [
+      {
+         "Name": "[dbo].[Address]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Customer_Bun]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[CustomerX]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Product]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[ProductDescription]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[Todo]",
+         "ObjectType": 0
+      },
+      {
+         "Name": "[dbo].[User]",
+         "ObjectType": 0
+      }
+   ],
+   "UiHint": "33a554b2be08.Demo1",
+   "UseBoolPropertiesWithoutDefaultSql": false,
+   "UseDatabaseNames": false,
+   "UseDbContextSplitting": false,
+   "UseFluentApiOnly": true,
+   "UseHandleBars": false,
+   "UseHierarchyId": false,
+   "UseInflector": false,
+   "UseLegacyPluralizer": false,
+   "UseManyToManyEntity": false,
+   "UseNoConstructor": false,
+   "UseNoDefaultConstructor": false,
+   "UseNoNavigations": false,
+   "UseNoObjectFilter": false,
+   "UseNodaTime": false,
+   "UseNullableReferences": false,
+   "UseSchemaFolders": false,
+   "UseSpatial": false,
+   "UseT4": false
+}
