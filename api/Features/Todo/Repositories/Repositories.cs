@@ -3,21 +3,21 @@ using System.Diagnostics;
 namespace Api.Features.Todo.Repositories;
 public class Repositories : IRepositories
 {
-    private readonly DbContexts _db;
-    public Repositories(DbContexts db)
+    private readonly DBContexts _db;
+    public Repositories(DBContexts db)
     {
         _db = db;
     }
 
-    public async Task<IList<Ef.Todo>> GetTodosAsync()
+    public async Task<IList<Entity.Model.Todo>> GetTodosAsync()
     {
         return await _db.Todos.ToListAsync();
     }
 
-    public async Task<Ef.Todo?> GetByidAsync(Guid id)
+    public async Task<Entity.Model.Todo?> GetByidAsync(Guid id)
     => await _db.Todos.FirstOrDefaultAsync(r => r.Id == id);
 
-    public async Task<Ef.Todo> CreateAsync(Ef.Todo todo)
+    public async Task<Entity.Model.Todo> CreateAsync(Entity.Model.Todo todo)
     {
         await _db.Todos.AddAsync(todo);
         await _db.SaveChangesAsync();
@@ -25,7 +25,7 @@ public class Repositories : IRepositories
     }
 
 
-    public async Task<Ef.Todo?> UpdateAsync(Ef.Todo todo)
+    public async Task<Entity.Model.Todo?> UpdateAsync(Entity.Model.Todo todo)
     {
         var data = await _db.Todos.FirstOrDefaultAsync(r => r.Id == todo.Id);
         if (data == null) return null;
@@ -47,7 +47,7 @@ public class Repositories : IRepositories
     }
 
 
-    public async Task<string> TestInsert(List<Ef.CustomerX> customers)
+    public async Task<string> TestInsert(List<Entity.Model.CustomerX> customers)
     {
         Stopwatch stopWatch = new Stopwatch();
         stopWatch.Start();

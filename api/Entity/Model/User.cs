@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api.Entities.Models;
+namespace Entity.Model;
 
 [Table("User")]
 public partial class User

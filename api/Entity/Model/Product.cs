@@ -4,16 +4,15 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api.Entities.Models;
+namespace Entity.Model;
 
 [Keyless]
-[Table("ProductDescription")]
-public partial class ProductDescription
+[Table("Product")]
+public partial class Product
 {
     public int? ProductID { get; set; }
 
-    [Column("ProductDescription")]
-    [StringLength(800)]
+    [StringLength(100)]
     [Unicode(false)]
-    public string? ProductDescription1 { get; set; }
+    public string? ProductName { get; set; }
 }

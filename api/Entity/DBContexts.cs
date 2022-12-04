@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using Api.Entities.Models;
+using Entity.Model;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api.Entities;
+namespace Entity;
 
-public partial class DbContexts : DbContext
+public partial class DBContexts : DbContext
 {
-    public DbContexts(DbContextOptions<DbContexts> options)
+    public DBContexts(DbContextOptions<DBContexts> options)
         : base(options)
     {
     }
@@ -15,6 +15,8 @@ public partial class DbContexts : DbContext
     public virtual DbSet<Address> Addresses { get; set; }
 
     public virtual DbSet<CustomerX> CustomerXes { get; set; }
+
+    public virtual DbSet<Customer_Bun> Customer_Buns { get; set; }
 
     public virtual DbSet<Product> Products { get; set; }
 
@@ -37,6 +39,11 @@ public partial class DbContexts : DbContext
         modelBuilder.Entity<CustomerX>(entity =>
         {
             entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC07C0BFD46F");
+        });
+
+        modelBuilder.Entity<Customer_Bun>(entity =>
+        {
+            entity.HasKey(e => e.Id).HasName("PK__Customer__3214EC07F24AF8A1");
         });
 
         modelBuilder.Entity<Todo>(entity =>
