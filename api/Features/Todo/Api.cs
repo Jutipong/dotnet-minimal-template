@@ -1,4 +1,4 @@
-namespace Api.Features.Todo;
+namespace Features.Todo;
 public class TodoModule : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)

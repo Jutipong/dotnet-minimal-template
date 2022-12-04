@@ -1,6 +1,6 @@
 using System.Diagnostics;
 
-namespace Api.Features.Todo.Repositories;
+namespace Features.Todo.Repositories;
 public class Repositories : IRepositories
 {
     private readonly DBContexts _db;

@@ -1,4 +1,4 @@
-namespace Api.Features.Todo.Service;
+namespace Features.Todo.Service;
 public interface IService
 {
     public Task<IList<Entity.Model.Todo>> GetTodosAsync();

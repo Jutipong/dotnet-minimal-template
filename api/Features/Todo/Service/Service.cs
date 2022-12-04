@@ -1,6 +1,6 @@
-using Api.Features.Todo.Repositories;
+using Features.Todo.Repositories;
 
-namespace Api.Features.Todo.Service;
+namespace Features.Todo.Service;
 public class Service : IService
 {
     private readonly IRepositories _repo;

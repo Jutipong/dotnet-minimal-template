@@ -1,4 +1,4 @@
-namespace Api.Features.Todo.Repositories;
+namespace Features.Todo.Repositories;
 public interface IRepositories
 {
     public Task<IList<Entity.Model.Todo>> GetTodosAsync();
