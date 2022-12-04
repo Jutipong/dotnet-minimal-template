@@ -4,15 +4,18 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Api.Entities.Models
+namespace Api.Entities.Models;
+
+[Table("Address")]
+public partial class Address
 {
-    [Table("Address")]
-    public partial class Address
-    {
-        [Key]
-        public Guid Id { get; set; }
-        [Column("Address")]
-        public string Address1 { get; set; } = null!;
-        public bool IsActive { get; set; }
-    }
+    [Key]
+    public Guid Id { get; set; }
+
+    [Column("Address")]
+    public string Address1 { get; set; } = null!;
+
+    public bool IsActive { get; set; }
+
+    public Guid UserId { get; set; }
 }

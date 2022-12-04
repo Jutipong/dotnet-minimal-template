@@ -33,5 +33,11 @@ public class TodoModule : ICarterModule
             ? Results.Ok(true)
             : Results.NotFound();
         });
+
+        app.MapGet("api/todo/testinsert", async (Service.IService _service) =>
+        {
+            var res = await _service.TestInsert();
+            return Results.Ok(res);
+        });
     }
 }

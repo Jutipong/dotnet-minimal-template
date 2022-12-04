@@ -6,4 +6,5 @@ public interface IService
     public Task<Ef.Todo> CreateAsync(string title);
     public Task<Ef.Todo?> UpdateAsync(TodoUpdateDto dto);
     public Task<bool> DeleteAsync(Guid id);
+    public Task<string> TestInsert();
 }

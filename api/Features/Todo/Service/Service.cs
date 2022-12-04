@@ -42,4 +42,21 @@ public class Service : IService
     {
         return await _repo.DeleteAsync(id);
     }
+
+    public async Task<string> TestInsert()
+    {
+        var datas = new List<Ef.CustomerX>();
+        for (int i = 0; i < 500000; i++)
+        {
+            datas.Add(new Ef.CustomerX
+            {
+                Id = Guid.NewGuid().ToString(),
+                Age = i,
+                Name = $"Name: {i}",
+                Email = $"Email: {i}",
+                IsActive = true
+            });
+        }
+        return await _repo.TestInsert(datas);
+    }
 }
