@@ -9,19 +9,19 @@ public class Service : IService
         _repo = repo;
     }
 
-    public async Task<IList<Entity.Model.Todo>> GetTodosAsync()
+    public async Task<IList<Entity.Models.Todo>> GetTodosAsync()
     {
         return await _repo.GetTodosAsync();
     }
 
-    public async Task<Entity.Model.Todo?> GetByIdAsync(Guid id)
+    public async Task<Entity.Models.Todo?> GetByIdAsync(Guid id)
     {
         return await _repo.GetByidAsync(id);
     }
 
-    public async Task<Entity.Model.Todo> CreateAsync(string title)
+    public async Task<Entity.Models.Todo> CreateAsync(string title)
     {
-        return await _repo.CreateAsync(new Entity.Model.Todo
+        return await _repo.CreateAsync(new Entity.Models.Todo
         {
             Title = title,
             CreateDate = new DateTime(),
@@ -29,9 +29,9 @@ public class Service : IService
         });
     }
 
-    public async Task<Entity.Model.Todo?> UpdateAsync(TodoUpdateDto dto)
+    public async Task<Entity.Models.Todo?> UpdateAsync(TodoUpdateDto dto)
     {
-        return await _repo.UpdateAsync(new Entity.Model.Todo
+        return await _repo.UpdateAsync(new Entity.Models.Todo
         {
             Id = dto.Id,
             Title = dto.Title
@@ -45,10 +45,10 @@ public class Service : IService
 
     public async Task<string> TestInsert()
     {
-        var datas = new List<Entity.Model.CustomerX>();
+        var datas = new List<Entity.Models.CustomerX>();
         for (int i = 0; i < 500000; i++)
         {
-            datas.Add(new Entity.Model.CustomerX
+            datas.Add(new Entity.Models.CustomerX
             {
                 Id = Guid.NewGuid().ToString(),
                 Age = i,

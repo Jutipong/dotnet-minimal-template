@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using Entity.Model;
+using Entity.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace Entity;

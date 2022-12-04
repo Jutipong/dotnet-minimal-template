@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Microsoft.EntityFrameworkCore;
 
-namespace Entity.Model;
+namespace Entity.Models;
 
 [Table("Customer_Bun")]
 public partial class Customer_Bun
