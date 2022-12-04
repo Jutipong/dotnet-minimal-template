@@ -14,5 +14,6 @@ namespace Api.Entities.Models
         [Column("Address")]
         public string Address1 { get; set; } = null!;
         public bool IsActive { get; set; }
+        public Guid UserId { get; set; }
     }
 }

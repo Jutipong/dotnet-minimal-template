@@ -24,6 +24,5 @@ namespace Api.Entities.Models
         [StringLength(50)]
         public string? UpdateBy { get; set; }
         public bool IsActive { get; set; }
-        public Guid AddressId { get; set; }
     }
 }

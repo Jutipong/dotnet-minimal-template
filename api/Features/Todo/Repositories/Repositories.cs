@@ -1,3 +1,5 @@
+using System.Diagnostics;
+
 namespace Api.Features.Todo.Repositories;
 public class Repositories : IRepositories
 {
@@ -42,5 +44,25 @@ public class Repositories : IRepositories
         _db.Remove(todo);
         _db.SaveChanges();
         return true;
+    }
+
+
+    public async Task<string> TestInsert(List<Ef.CustomerX> customers)
+    {
+        Stopwatch stopWatch = new Stopwatch();
+        stopWatch.Start();
+
+        await _db.AddRangeAsync(customers);
+        await _db.SaveChangesAsync();
+
+        TimeSpan ts = stopWatch.Elapsed;
+
+        // Format and display the TimeSpan value. 
+        var elapsedTime = String.Format("insert data: {0} {1:00}:{2:00}:{3:00}.{4:00}", customers.Count,
+            ts.Hours, ts.Minutes, ts.Seconds,
+            ts.Milliseconds / 10);
+
+        Console.WriteLine(elapsedTime);
+        return elapsedTime;
     }
 }

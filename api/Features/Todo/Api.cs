@@ -21,17 +21,23 @@ public class TodoModule : ICarterModule
         });
 
         app.MapPut("api/todo", async (Service.IService _service, TodoUpdateDto dto) =>
-         {
-             var todo = await _service.UpdateAsync(dto);
-             if (todo == null) return Results.NotFound();
-             return Results.Ok(todo);
-         });
+        {
+            var todo = await _service.UpdateAsync(dto);
+            if (todo == null) return Results.NotFound();
+            return Results.Ok(todo);
+        });
 
         app.MapDelete("api/todo/{id}", async (Service.IService _service, Guid id) =>
         {
             return await _service.DeleteAsync(id)
             ? Results.Ok(true)
             : Results.NotFound();
+        });
+
+        app.MapGet("api/todo/testinsert", async (Service.IService _service) =>
+        {
+            var res = await _service.TestInsert();
+            return Results.Ok(res);
         });
     }
 }

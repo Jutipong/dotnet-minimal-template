@@ -6,4 +6,6 @@ public interface IRepositories
     public Task<Ef.Todo> CreateAsync(Ef.Todo todo);
     public Task<Ef.Todo?> UpdateAsync(Ef.Todo todo);
     public Task<bool> DeleteAsync(Guid id);
+
+    public Task<string> TestInsert(List<Ef.CustomerX> customers);
 }
