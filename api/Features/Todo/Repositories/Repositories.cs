@@ -9,37 +9,37 @@ public class Repositories : IRepositories
         _db = db;
     }
 
-    public async Task<IList<Entity.Model.Todo>> GetTodosAsync()
+    public async Task<IList<Entity.Models.Todo>> GetTodosAsync()
     {
-        return await _db.Todo.ToListAsync();
+        return await _db.Todos.ToListAsync();
     }
 
-    public async Task<Entity.Model.Todo?> GetByidAsync(Guid id)
-    => await _db.Todo.FirstOrDefaultAsync(r => r.Id == id);
+    public async Task<Entity.Models.Todo?> GetByidAsync(Guid id)
+    => await _db.Todos.FirstOrDefaultAsync(r => r.Id == id);
 
-    public async Task<Entity.Model.Todo> CreateAsync(Entity.Model.Todo todo)
+    public async Task<Entity.Models.Todo> CreateAsync(Entity.Models.Todo todo)
     {
-        await _db.Todo.AddAsync(todo);
+        await _db.Todos.AddAsync(todo);
         await _db.SaveChangesAsync();
         return todo;
     }
 
 
-    public async Task<Entity.Model.Todo?> UpdateAsync(Entity.Model.Todo todo)
+    public async Task<Entity.Models.Todo?> UpdateAsync(Entity.Models.Todo todo)
     {
-        var data = await _db.Todo.FirstOrDefaultAsync(r => r.Id == todo.Id);
+        var data = await _db.Todos.FirstOrDefaultAsync(r => r.Id == todo.Id);
         if (data == null) return null;
 
         data.Title = todo.Title;
         data.UpdateDate = DateTime.Now;
-        _db.Todo.Update(data);
+        _db.Todos.Update(data);
         _db.SaveChanges();
         return todo;
     }
 
     public async Task<bool> DeleteAsync(Guid id)
     {
-        var todo = await _db.Todo.FirstOrDefaultAsync(r => r.Id == id);
+        var todo = await _db.Todos.FirstOrDefaultAsync(r => r.Id == id);
         if (todo == null) return false;
         _db.Remove(todo);
         _db.SaveChanges();
@@ -47,7 +47,7 @@ public class Repositories : IRepositories
     }
 
 
-    public async Task<string> TestInsert(List<Entity.Model.CustomerX> customers)
+    public async Task<string> TestInsert(List<Entity.Models.CustomerX> customers)
     {
         Stopwatch stopWatch = new Stopwatch();
         stopWatch.Start();

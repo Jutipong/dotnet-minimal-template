@@ -14,6 +14,7 @@ set output_dir=.\Entity\Models
 
 dotnet ef dbcontext scaffold "Server=%host%,%port%;Initial Catalog=%dbname%;User ID=%user%; Password=%password%; Timeout=%timeout%; TrustServerCertificate=true;" ^
 Microsoft.EntityFrameworkCore.SqlServer ^
+--json ^
 --use-database-names ^
 --data-annotations ^
 --no-onconfiguring ^
