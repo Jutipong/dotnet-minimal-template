@@ -1,19 +1,6 @@
-// using System;
-// using System.Collections.Generic;
-// using System.Linq;
-// using System.Threading.Tasks;
-
-// namespace api.Extensions.ServiceCollection
-// {
-//     public class OpenAPI
-//     {
-
-//     }
-// }
+namespace Microsoft.Extensions.DependencyInjection;
 
 using Microsoft.OpenApi.Models;
-
-namespace Microsoft.Extensions.DependencyInjection;
 
 public static partial class ServiceCollection
 {

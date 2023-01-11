@@ -1,6 +1,11 @@
 namespace Microsoft.AspNetCore.Builder;
 
-internal static partial class ApplicationBuilderExtensions
+using System;
+using Microsoft.AspNetCore.Builder;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
+
+internal static partial class ApplicationBuilder
 {
     /// <summary>
     /// Register exception handling.

@@ -3,35 +3,40 @@ public class TodoModule : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
-        app.MapGet("/api/todos", async (Service.IService _service) =>
+        app.MapGet("/api/test", () =>
         {
-            return Results.Ok(await _service.GetTodosAsync());
-        });
+            return Results.Ok("Test api.");
+        }).AllowAnonymous();
 
-        app.MapGet("api/todo/{id}", async (Service.IService _service, Guid id) =>
-        {
-            var result = await _service.GetByIdAsync(id);
-            if (result == null) return Results.NotFound();
-            return Results.Ok(result);
-        });
+        //     app.MapGet("/api/todos", async (Service.IService _service) =>
+        //    {
+        //        return Results.Ok(await _service.GetTodosAsync());
+        //    });
 
-        app.MapPost("api/todo", async (Service.IService _service, string title) =>
-        {
-            return Results.Ok(await _service.CreateAsync(title));
-        });
+        // app.MapGet("api/todo/{id}", async (Service.IService _service, Guid id) =>
+        // {
+        //     var result = await _service.GetByIdAsync(id);
+        //     if (result == null) return Results.NotFound();
+        //     return Results.Ok(result);
+        // });
 
-        app.MapPut("api/todo", async (Service.IService _service, TodoUpdateDto dto) =>
-         {
-             var todo = await _service.UpdateAsync(dto);
-             if (todo == null) return Results.NotFound();
-             return Results.Ok(todo);
-         });
+        // app.MapPost("api/todo", async (Service.IService _service, string title) =>
+        // {
+        //     return Results.Ok(await _service.CreateAsync(title));
+        // });
 
-        app.MapDelete("api/todo/{id}", async (Service.IService _service, Guid id) =>
-        {
-            return await _service.DeleteAsync(id)
-            ? Results.Ok(true)
-            : Results.NotFound();
-        });
+        // app.MapPut("api/todo", async (Service.IService _service, TodoUpdateDto dto) =>
+        //  {
+        //      var todo = await _service.UpdateAsync(dto);
+        //      if (todo == null) return Results.NotFound();
+        //      return Results.Ok(todo);
+        //  });
+
+        // app.MapDelete("api/todo/{id}", async (Service.IService _service, Guid id) =>
+        // {
+        //     return await _service.DeleteAsync(id)
+        //     ? Results.Ok(true)
+        //     : Results.NotFound();
+        // });
     }
 }
