@@ -5,7 +5,7 @@ namespace Microsoft.Extensions.DependencyInjection;
 
 public static partial class ServiceCollection
 {
-    public static WebApplicationBuilder RegisterService(this WebApplicationBuilder builder)
+    public static WebApplicationBuilder AddRegisterService(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IAccountService, AccountService>();
         builder.Services.AddScoped<ITodoService, TodoService>();
