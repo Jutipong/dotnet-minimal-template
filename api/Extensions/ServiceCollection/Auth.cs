@@ -1,9 +1,8 @@
-namespace Microsoft.Extensions.DependencyInjection;
 
-using Serilog;
-using System.Security.Claims;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Authorization;
+
+namespace Microsoft.Extensions.DependencyInjection;
 
 public static partial class ServiceCollection
 {

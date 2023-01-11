@@ -1,12 +1,14 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Web_Minimal.Features.Account.Service;
+using Web_Minimal.Features.Todo.Service;
 
-namespace api.Extensions
+namespace Microsoft.Extensions.DependencyInjection;
+
+public static partial class ServiceCollection
 {
-    public class ServiceRegister
+    public static WebApplicationBuilder RegisterService(this WebApplicationBuilder builder)
     {
-        
+        builder.Services.AddScoped<IAccountService, AccountService>();
+        builder.Services.AddScoped<ITodoService, TodoService>();
+        return builder;
     }
 }

@@ -1,9 +1,8 @@
-namespace Microsoft.Extensions.DependencyInjection;
-
-using Microsoft.OpenApi.Models;
 using Serilog;
 using Serilog.Events;
 using Serilog.Sinks.SpectreConsole;
+
+namespace Microsoft.Extensions.DependencyInjection;
 
 public static partial class ServiceCollection
 {

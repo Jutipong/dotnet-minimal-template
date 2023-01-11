@@ -1,4 +1,5 @@
-﻿using Web_Minimal.Features.Account.Service;
+﻿using static Web_Minimal.Features.Account.Dto.Request;
+using Web_Minimal.Features.Account.Service;
 
 namespace Web_Minimal.Features.Account
 {
@@ -6,22 +7,17 @@ namespace Web_Minimal.Features.Account
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            var groups = app.MapGroup("/account").WithTags("Account");
-
-            groups.MapPost("/create", (IAccountService service, Dto.Request.CreateAccount req) =>
-            {
-                return Results.Ok(service.Create(req));
-            });
-
-            groups.MapPut("/update", (IAccountService service, Dto.Request.UpdateAccount req) =>
-            {
-                return Results.Ok(service.Update(req));
-            });
-
-            groups.MapDelete("/delete/{id}", (IAccountService service, int id) =>
-            {
-                return Results.Ok(service.Delete(new Dto.Request.DeleteAccount { Id = id }));
-            }).RequireAuthorization();
+            var g = app.MapGroup("/account").WithTags("Account");
+            g.MapGet("/", () => "API => Account.").AllowAnonymous();
+            g.MapPost("/create", Create);
+            g.MapPut("/update", Update);
+            g.MapDelete("/delete/{id}", Delete);
         }
+
+        private IResult Create(IAccountService service, CreateAccount create) => Results.Ok(service.Create(create));
+
+        private IResult Update(IAccountService service, UpdateAccount update) => Results.Ok(service.Update(update));
+
+        private IResult Delete(IAccountService service, int id) => Results.Ok(service.Delete(new DeleteAccount { Id = id }));
     }
 }

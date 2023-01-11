@@ -1,8 +1,3 @@
 {
-  "cSpell.words": ["appsetting", "ASPNETCORE"]
-  // "files.exclude": {
-  //   "Api/bin": true,
-  //   "Api/obj": true,
-  //   "Test/obj": true
-  // }
+  "cSpell.words": ["ASPNETCORE"]
 }

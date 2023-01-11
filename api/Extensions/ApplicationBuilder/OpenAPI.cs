@@ -1,22 +1,17 @@
 namespace Microsoft.AspNetCore.Builder;
 
-using System;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.Configuration;
-
 internal static partial class ApplicationBuilder
 {
     /// <summary>
     /// Register Swagger endpoints.
     /// </summary>
-    public static IApplicationBuilder UseSwaggerEndpoints(this IApplicationBuilder app, string routePrefix)
+    public static IApplicationBuilder UseSwaggerEndpoints(this IApplicationBuilder app)
     {
         app.UseSwagger();
         app.UseSwaggerUI(c =>
         {
             c.SwaggerEndpoint("/swagger/v1/swagger.json", "API");
-            c.RoutePrefix = routePrefix;
+            c.RoutePrefix = string.Empty;
         });
 
         return app;
