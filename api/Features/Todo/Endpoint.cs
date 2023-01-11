@@ -9,10 +9,10 @@ namespace Web_Minimal.Features.Todo
         {
             var groups = app.MapGroup("/todo").WithTags("Todos").RequireAuthorization();
 
-            groups.MapPost("/create", (ITodoService service, CreateTodo req) =>
+            groups.MapPost("/create", (AppSettings appSettings, ITodoService service, CreateTodo req) =>
             {
                 return Results.Ok(service.Create(req));
-            });
+            }).AllowAnonymous();
 
             groups.MapPut("/update", (ITodoService service, UpdateTodo req) =>
             {

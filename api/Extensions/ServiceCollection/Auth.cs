@@ -32,7 +32,7 @@ public static partial class ServiceCollection
         {
             options.Authority = "https://login.microsoftonline.com/xxxxxxxxxxxxxxxxxxxxxxxxxx";
             options.Audience = "xxxxxxxxxxxxxxxxxxxxxxxxx";
-            options.TokenValidationParameters.ValidateLifetime = false;
+            options.TokenValidationParameters.ValidateLifetime = false; //Production have to be true,
             options.TokenValidationParameters.ClockSkew = TimeSpan.Zero;
         });
 
