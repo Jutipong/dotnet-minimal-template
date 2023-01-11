@@ -1,6 +1,10 @@
+using Microsoft.OpenApi.Models;
 using todo = Api.Features.Todo;
 
 var builder = WebApplication.CreateBuilder(args);
+builder.AddSwagger();
+
+
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
@@ -16,22 +20,16 @@ builder.Services.AddDbContext<DbContexts>(o => o.UseSqlServer(builder.Configurat
 builder.Services.AddScoped<todo.Service.IService, todo.Service.Service>();
 builder.Services.AddScoped<todo.Repositories.IRepositories, todo.Repositories.Repositories>();
 
+// var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
 
 var app = builder.Build();
+app
+.UseExceptionHandling(app.Environment)
+.UseSwaggerEndpoints(string.Empty);
+// .UseAppCors();
+// .UseAuthentication()
+// .UseAuthorization();
+
 app.MapCarter();//MapCarter
-
-// Configure the HTTP request pipeline.
-if (app.Environment.IsDevelopment())
-{
-    //set start swagger page 
-    app.UseSwaggerUI(options =>
-    {
-        options.SwaggerEndpoint("/swagger/v1/swagger.json", "v1");
-        options.RoutePrefix = string.Empty;
-    });
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
 app.Run();
