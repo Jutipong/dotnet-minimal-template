@@ -1,10 +1,9 @@
-﻿namespace Api.Models
-{
-    public class JsonResponse<T>
-    {
+﻿namespace Api.Models;
 
-        public string? Message { get; set; }
-        public string? Error { get; set; }
-        public T? Datas { get; set; }
-    }
+public class JsonResponse<T>
+{
+
+    public string? Message { get; set; }
+    public string? Error { get; set; }
+    public T? Datas { get; set; }
 }

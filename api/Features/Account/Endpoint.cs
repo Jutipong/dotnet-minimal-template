@@ -9,7 +9,6 @@ namespace Web_Minimal.Features.Account
         public void AddRoutes(IEndpointRouteBuilder app)
         {
             var g = app.MapGroup("/account").WithTags("Account");
-            // g.MapGet("/", [Authorize(Roles = "admin,dev")] () => "API => Account.").AllowAnonymous();
             g.MapGet("/", () => "API => Account.").AllowAnonymous();
             g.MapPost("/create", Create);
             g.MapPut("/update", Update);

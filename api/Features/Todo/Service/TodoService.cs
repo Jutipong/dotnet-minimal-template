@@ -7,17 +7,17 @@ namespace Web_Minimal.Features.Todo.Service
     {
         public JsonResponse<Response.Create> Create(Request.CreateTodo create)
         {
-            throw new NotImplementedException();
+            return new JsonResponse<Response.Create> { };
         }
 
         public JsonResponse<Response.Delete> Delete(Request.DeleteTodo delete)
         {
-            throw new NotImplementedException();
+            return new JsonResponse<Response.Delete> { };
         }
 
         public JsonResponse<Response.Update> Update(Request.UpdateTodo update)
         {
-            throw new NotImplementedException();
+            return new JsonResponse<Response.Update> { };
         }
     }
 }

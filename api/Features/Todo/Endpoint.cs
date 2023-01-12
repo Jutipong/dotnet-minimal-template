@@ -7,22 +7,14 @@ namespace Web_Minimal.Features.Todo
     {
         public void AddRoutes(IEndpointRouteBuilder app)
         {
-            var groups = app.MapGroup("/todo").WithTags("Todos").RequireAuthorization();
-
-            groups.MapPost("/create", (AppSettings appSettings, ITodoService service, CreateTodo req) =>
-            {
-                return Results.Ok(service.Create(req));
-            }).AllowAnonymous();
-
-            groups.MapPut("/update", (ITodoService service, UpdateTodo req) =>
-            {
-                return Results.Ok(service.Update(req));
-            });
-
-            groups.MapDelete("/delete/{id}", (ITodoService service, int id) =>
-            {
-                return Results.Ok(service.Delete(new DeleteTodo { Id = id }));
-            });
+            var groups = app.MapGroup("/todo").WithTags("Todos");
+            groups.MapPost("/create", Create);
+            groups.MapPut("/update", Update);
+            groups.MapDelete("/delete/{id}", Delete);
         }
+
+        private IResult Create(ITodoService _service, CreateTodo create) => Results.Ok(_service.Create(create));
+        private IResult Update(ITodoService _service, UpdateTodo update) => Results.Ok(_service.Update(update));
+        private IResult Delete(ITodoService _service, int id) => Results.Ok(_service.Delete(new DeleteTodo { Id = id }));
     }
 }

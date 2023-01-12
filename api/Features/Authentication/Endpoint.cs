@@ -16,7 +16,7 @@ namespace api.Features.Authentication
 
         private IResult Login(AppSettings _appSettings, Request.Login user)
         {
-            if (user.UserName != "admin" || user.Password != "123") return Results.Unauthorized();
+            if (user.UserName != "admin" || user.Password != "1234") return Results.Unauthorized();
 
             var claims = new List<Claim>();
             claims.Add(new Claim("id", "99"));
