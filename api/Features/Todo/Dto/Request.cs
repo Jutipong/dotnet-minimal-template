@@ -1,5 +1,4 @@
-﻿using System.ComponentModel.DataAnnotations;
-
+﻿
 namespace Web_Minimal.Features.Todo.Dto
 {
     public class Request
@@ -21,6 +20,7 @@ namespace Web_Minimal.Features.Todo.Dto
             [Required]
             public string Last { get; set; } = string.Empty;
         }
+
         public class DeleteTodo
         {
             [Required]

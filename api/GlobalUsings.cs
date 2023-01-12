@@ -6,5 +6,7 @@
 // global using Carter;
 // global using Api.Models;
 
+global using System.Linq;
+global using System.ComponentModel.DataAnnotations;
 global using Carter;
 global using Api.Models;

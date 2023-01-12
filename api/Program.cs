@@ -1,3 +1,7 @@
+using System.Text;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+
 var environment = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,3 +26,5 @@ app
 
 app.MapCarter();
 app.Run();
+
+// builder.Services.Configure<AppSittingModel>(builder.Configuration.GetSection("AppSettings"));
