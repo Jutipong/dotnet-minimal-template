@@ -4,12 +4,34 @@ namespace Web_Minimal.Features.Account.Service
 {
     public class AccountService : IAccountService
     {
-        public JsonResponse<Response.Create> Create(Request.CreateAccount create)
+        private readonly ILogger<AccountService> _log;
+        public AccountService(ILogger<AccountService> log)
         {
-            return new JsonResponse<Response.Create>
+            this._log = log;
+        }
+        public JsonResponse<Response.Create>? Create(Request.CreateAccount create)
+        {
+            try
             {
-                Datas = new Response.Create { Id = 99, Name = create.Name, Last = create.Last }
-            };
+                _log.LogInformation("============= start service {@Create} ===============", create);
+
+                var result = new JsonResponse<Response.Create>
+                {
+                    Datas = new Response.Create { Id = 99, Name = create.Name, Last = create.Last }
+                };
+
+                // //mack err
+                // result.Datas = null;
+                // var t = result.Datas.Id;
+
+                _log.LogInformation("============= end service ===============");
+
+                return result;
+            }
+            catch
+            {
+                throw;
+            }
         }
 
         public JsonResponse<Response.Update> Update(Request.UpdateAccount update)

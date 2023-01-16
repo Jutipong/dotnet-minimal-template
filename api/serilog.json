@@ -1,0 +1,28 @@
+﻿{
+  "Serilog": {
+    "MinimumLevel": {
+      "Default": "Information",
+      "Override": {
+        "Microsoft": "Information",
+        "Microsoft.Hosting.Lifetime": "Information"
+      }
+    },
+    "WriteTo": [
+      {
+        "Name": "File",
+        "Args": {
+          "path": "Logs\\",
+          "logFilePathTemplate": "xxxx\\yyyy-MM'\\Log-'yyyy-MM-dd'.log'",
+          "outputTemplate": "{Timestamp:u} [{Level:u3}] [{SourceContext}] [{RequestPath}] {Message}{NewLine}{Exception}",
+          "rollingInterval": "Day",
+          "retainedFileCountLimit": 90
+        }
+      }
+    ],
+    "Enrich": ["FromLogContext"],
+    "Properties": {
+      "Application": "minimal_api_test"
+    }
+  },
+  "AllowedHosts": "*"
+}

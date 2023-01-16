@@ -8,3 +8,5 @@ test/bin/
 test/obj/
 
 .vs/
+
+api/logs/

@@ -1,7 +1,5 @@
 namespace Microsoft.Extensions.DependencyInjection;
 
-// using Microsoft.Data.Sqlite;
-
 public static partial class ServiceCollection
 {
     public static WebApplicationBuilder AddDAtaBase(this WebApplicationBuilder builder)

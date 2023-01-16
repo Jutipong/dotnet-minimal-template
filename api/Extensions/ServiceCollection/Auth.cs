@@ -1,14 +1,12 @@
 
 using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.IdentityModel.Tokens;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
 public static partial class ServiceCollection
 {
-
     public static WebApplicationBuilder AddAuthorization(this WebApplicationBuilder builder)
     {
         // builder.Services.AddAuthorization();
@@ -36,7 +34,7 @@ public static partial class ServiceCollection
                 ValidAudience = builder.Configuration["AppSettings:Jwt:Audience"],
                 ValidateAudience = true,
                 IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["AppSettings:Jwt:Key"]!)),
-                ValidateLifetime = false, //Production have to be true,
+                ValidateLifetime = true, //Production have to be true,
                 ValidateIssuerSigningKey = true
             };
         });
