@@ -4,15 +4,14 @@
       "Default": "Information",
       "Override": {
         "Microsoft": "Information",
-        "Microsoft.Hosting.Lifetime": "Information"
+        "System": "Information"
       }
     },
-    "WriteTo": [
+    "WriteToX": [
       {
         "Name": "File",
         "Args": {
-          "path": "Logs\\",
-          "logFilePathTemplate": "xxxx\\yyyy-MM'\\Log-'yyyy-MM-dd'.log'",
+          "path": "Logs/",
           "outputTemplate": "{Timestamp:u} [{Level:u3}] [{SourceContext}] [{RequestPath}] {Message}{NewLine}{Exception}",
           "rollingInterval": "Day",
           "retainedFileCountLimit": 90

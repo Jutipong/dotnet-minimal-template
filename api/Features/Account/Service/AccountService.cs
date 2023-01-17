@@ -13,7 +13,7 @@ namespace Web_Minimal.Features.Account.Service
         {
             try
             {
-                _log.LogInformation("============= start service {@Create} ===============", create);
+                _log.LogWarning("============= start service {@Create} ===============", create);
 
                 var result = new JsonResponse<Response.Create>
                 {
