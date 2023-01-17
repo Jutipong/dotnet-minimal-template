@@ -2,8 +2,6 @@
 
 public class UnauthorizedException : Exception
 {
-    public string? ErrorCode { get; private set; }
-
     public UnauthorizedException()
     {
     }
@@ -16,4 +14,6 @@ public class UnauthorizedException : Exception
     {
         ErrorCode = errorCode.GetNameToSnakeCase();
     }
+
+    public string? ErrorCode { get; }
 }

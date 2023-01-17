@@ -16,14 +16,14 @@ public static partial class ServiceCollection
         services.AddEndpointsApiExplorer();
         services.AddSwaggerGen(c =>
         {
-            c.SwaggerDoc("v1", new OpenApiInfo()
+            c.SwaggerDoc("v1", new OpenApiInfo
             {
                 Description = "Minimal API Demo",
                 Title = "Minimal API Demo",
                 Version = "v1",
-                Contact = new OpenApiContact()
+                Contact = new OpenApiContact
                 {
-                    Name = "[Name]",
+                    Name = "[Name]"
                     // Url = new Uri("")
                 }
             });
@@ -35,10 +35,10 @@ public static partial class ServiceCollection
                 BearerFormat = "JWT",
                 In = ParameterLocation.Header,
                 Description = "JWT Authorization header using the Bearer scheme. \r\n\r\n " +
-                        "Enter 'Bearer' [space] and then your token in the text input below. \r\n\r\n" +
-                        "Example: Bearer token",
+                              "Enter 'Bearer' [space] and then your token in the text input below. \r\n\r\n" +
+                              "Example: Bearer token"
             });
-            c.AddSecurityRequirement(new OpenApiSecurityRequirement()
+            c.AddSecurityRequirement(new OpenApiSecurityRequirement
             {
                 {
                     new OpenApiSecurityScheme
@@ -50,11 +50,11 @@ public static partial class ServiceCollection
                         },
                         Scheme = "oauth2",
                         Name = "Bearer",
-                        In = ParameterLocation.Header,
-
+                        In = ParameterLocation.Header
                     },
                     new List<string>()
-            }});
+                }
+            });
         });
 
         return services;

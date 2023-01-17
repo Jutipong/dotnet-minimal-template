@@ -1,23 +1,21 @@
-﻿
-using api.Features.Todo.Dto;
+﻿using api.Features.Todo.Dto;
 
-namespace api.Features.Todo.Service
+namespace api.Features.Todo.Service;
+
+public class TodoService : ITodoService
 {
-    public class TodoService : ITodoService
+    public JsonResponse<Response.Create> Create(Request.CreateTodo create)
     {
-        public JsonResponse<Response.Create> Create(Request.CreateTodo create)
-        {
-            return new JsonResponse<Response.Create> { };
-        }
+        return new JsonResponse<Response.Create>();
+    }
 
-        public JsonResponse<Response.Delete> Delete(Request.DeleteTodo delete)
-        {
-            return new JsonResponse<Response.Delete> { };
-        }
+    public JsonResponse<Response.Delete> Delete(Request.DeleteTodo delete)
+    {
+        return new JsonResponse<Response.Delete>();
+    }
 
-        public JsonResponse<Response.Update> Update(Request.UpdateTodo update)
-        {
-            return new JsonResponse<Response.Update> { };
-        }
+    public JsonResponse<Response.Update> Update(Request.UpdateTodo update)
+    {
+        return new JsonResponse<Response.Update>();
     }
 }

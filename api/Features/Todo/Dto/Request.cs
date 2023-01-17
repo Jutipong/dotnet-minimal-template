@@ -1,30 +1,25 @@
-﻿
-namespace api.Features.Todo.Dto
+﻿namespace api.Features.Todo.Dto;
+
+public class Request
 {
-    public class Request
+    public class CreateTodo
     {
-        public class CreateTodo
-        {
-            [Required]
-            public string Name { get; set; } = string.Empty;
-            [Required]
-            public string Last { get; set; } = string.Empty;
-        }
+        [Required] public string Name { get; set; } = string.Empty;
 
-        public class UpdateTodo
-        {
-            [Required]
-            public int Id { get; set; }
-            [Required]
-            public string Name { get; set; } = string.Empty;
-            [Required]
-            public string Last { get; set; } = string.Empty;
-        }
+        [Required] public string Last { get; set; } = string.Empty;
+    }
 
-        public class DeleteTodo
-        {
-            [Required]
-            public int Id { get; set; }
-        }
+    public class UpdateTodo
+    {
+        [Required] public int Id { get; set; }
+
+        [Required] public string Name { get; set; } = string.Empty;
+
+        [Required] public string Last { get; set; } = string.Empty;
+    }
+
+    public class DeleteTodo
+    {
+        [Required] public int Id { get; set; }
     }
 }

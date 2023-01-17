@@ -1,7 +1,6 @@
-
-using System.Text;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
+using System.Text;
 
 namespace Microsoft.Extensions.DependencyInjection;
 
@@ -33,7 +32,8 @@ public static partial class ServiceCollection
                 ValidIssuer = builder.Configuration["AppSettings:Jwt:Issuer"],
                 ValidAudience = builder.Configuration["AppSettings:Jwt:Audience"],
                 ValidateAudience = true,
-                IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["AppSettings:Jwt:Key"]!)),
+                IssuerSigningKey =
+                    new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["AppSettings:Jwt:Key"]!)),
                 ValidateLifetime = true, //Production have to be true,
                 ValidateIssuerSigningKey = true
             };

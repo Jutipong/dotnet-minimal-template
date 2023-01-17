@@ -1,20 +1,11 @@
-using System.Net;
-using AAA.Compatible.Models.Exceptions;
-using api.Compatible.Helpers;
-using api.Compatible.Models;
-using api.Compatible.Models.Exceptions;
-using Microsoft.AspNetCore.Diagnostics;
-
 namespace Microsoft.AspNetCore.Builder;
 
 internal static partial class ApplicationBuilder
 {
-    public static IApplicationBuilder UseExceptionHandling(this IApplicationBuilder app, IWebHostEnvironment environment)
+    public static IApplicationBuilder UseExceptionHandling(this IApplicationBuilder app,
+        IWebHostEnvironment environment)
     {
-        if (environment.IsDevelopment())
-        {
-            app.UseDeveloperExceptionPage();
-        }
+        if (environment.IsDevelopment()) app.UseDeveloperExceptionPage();
 
         app.UseExceptionHandler(appError =>
         {

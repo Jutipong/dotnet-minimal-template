@@ -5,8 +5,6 @@ namespace AAA.Compatible.Models.Exceptions;
 
 public class BadRequestException : Exception
 {
-    public string? ErrorCode { get; private set; }
-
     public BadRequestException()
     {
     }
@@ -31,6 +29,8 @@ public class BadRequestException : Exception
     {
         ErrorCode = errorCode.GetNameToSnakeCase();
     }
+
+    public string? ErrorCode { get; }
 
     private static string GetMessageReplaceParameter(OauthErrorCode errorCode, string[] fieldName)
     {

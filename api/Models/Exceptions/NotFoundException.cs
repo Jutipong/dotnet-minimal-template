@@ -2,8 +2,6 @@
 
 public class NotFoundException : Exception
 {
-    public string? ErrorCode { get; private set; }
-
     public NotFoundException()
     {
     }
@@ -17,4 +15,6 @@ public class NotFoundException : Exception
     {
         ErrorCode = errorCode.GetNameToSnakeCase();
     }
+
+    public string? ErrorCode { get; }
 }

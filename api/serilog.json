@@ -24,7 +24,9 @@
         }
       }
     ],
-    "Enrich": ["FromLogContext"],
+    "Enrich": [
+      "FromLogContext"
+    ],
     "Properties": {
       "Application": "minimal_api_test"
     }
