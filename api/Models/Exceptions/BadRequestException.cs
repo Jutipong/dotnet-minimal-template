@@ -1,7 +1,7 @@
 ﻿using api.Compatible.Helpers;
 using api.Compatible.Models;
 
-namespace AAA.Compatible.Models.Exceptions;
+namespace api.Compatible.Models.Exceptions;
 
 public class BadRequestException : Exception
 {
