@@ -1,6 +1,6 @@
-﻿using Web_Minimal.Features.Account.Dto;
+﻿using api.Features.Account.Dto;
 
-namespace Web_Minimal.Features.Account.Service
+namespace api.Features.Account.Service
 {
     public class AccountService : IAccountService
     {
@@ -13,7 +13,7 @@ namespace Web_Minimal.Features.Account.Service
         {
             try
             {
-                _log.LogWarning("============= start service {@Create} ===============", create);
+                _log.LogInformation("============= start service {@Create} ===============", create);
 
                 var result = new JsonResponse<Response.Create>
                 {

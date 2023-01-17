@@ -1,7 +1,5 @@
-﻿using static Web_Minimal.Features.Account.Dto.Request;
-using Web_Minimal.Features.Account.Service;
-using System.Text.Json;
-// using Microsoft.AspNetCore.Authorization;
+﻿using static api.Features.Account.Dto.Request;
+using api.Features.Account.Service;
 
 namespace Web_Minimal.Features.Account
 {
@@ -11,6 +9,7 @@ namespace Web_Minimal.Features.Account
         {
             var g = app.MapGroup("/account").WithTags("Account").AllowAnonymous();
             g.MapGet("/", () => "API => Account.").AllowAnonymous();
+            g.MapGet("/exception", () => { throw new InvalidOperationException("Sample Exception"); });
             g.MapPost("/create", Create).AllowAnonymous();
             g.MapPut("/update", Update);
             g.MapDelete("/delete/{id}", Delete);
@@ -18,23 +17,15 @@ namespace Web_Minimal.Features.Account
 
         private IResult Create(ILogger<Endpoint> _log, IAccountService service, CreateAccount create)
         {
-            try
-            {
-                _log.LogInformation("params: {@Create}", create);
-                var result = service.Create(create);
-                _log.LogInformation("===== end Endpoint =====");
+            _log.LogInformation("params: {@Create}", create);
+            var result = service.Create(create);
+            _log.LogInformation("===== end Endpoint =====");
 
-                // //mack err
-                // result = null;
-                // var tt = result.Datas.Id;
+            // //mack err
+            // result = null;
+            // var tt = result.Datas.Id;
 
-                return Results.Ok(result);
-            }
-            catch (Exception ex)
-            {
-                _log.LogError("Error: {@Ex}", ex);
-                return Results.NotFound();
-            }
+            return Results.Ok(result);
         }
 
         private IResult Update(IAccountService service, UpdateAccount update) => Results.Ok(service.Update(update));

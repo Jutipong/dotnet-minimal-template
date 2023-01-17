@@ -1,6 +1,7 @@
-﻿using Web_Minimal.Features.Account.Dto;
+﻿
+using api.Features.Account.Dto;
 
-namespace Web_Minimal.Features.Account.Service
+namespace api.Features.Account.Service
 {
     public interface IAccountService
     {

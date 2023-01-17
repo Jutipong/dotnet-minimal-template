@@ -1,5 +1,6 @@
-using Web_Minimal.Features.Account.Service;
-using Web_Minimal.Features.Todo.Service;
+
+using api.Features.Account.Service;
+using api.Features.Todo.Service;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

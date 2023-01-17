@@ -1,7 +1,7 @@
 ﻿
-using Web_Minimal.Features.Todo.Dto;
+using api.Features.Todo.Dto;
 
-namespace Web_Minimal.Features.Todo.Service
+namespace api.Features.Todo.Service
 {
     public class TodoService : ITodoService
     {

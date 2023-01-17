@@ -8,8 +8,7 @@ public static partial class ServiceCollection
     {
         builder.Logging.ClearProviders();
         builder.Host.UseSerilog((context, services, configuration) => configuration
-        .ReadFrom.Configuration(context.Configuration)
-        .WriteTo.Console());
+        .ReadFrom.Configuration(context.Configuration));
         return builder;
     }
 }

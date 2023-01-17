@@ -1,4 +1,4 @@
-﻿namespace Web_Minimal.Features.Todo.Dto
+﻿namespace api.Features.Todo.Dto
 {
     public class Response
     {

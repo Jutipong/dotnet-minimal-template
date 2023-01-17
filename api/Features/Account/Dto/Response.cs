@@ -1,7 +1,7 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 
-namespace Web_Minimal.Features.Account.Dto
+namespace api.Features.Account.Dto
 {
     public class Response
     {

@@ -1,5 +1,5 @@
-﻿using static Web_Minimal.Features.Todo.Dto.Request;
-using Web_Minimal.Features.Todo.Service;
+﻿using static api.Features.Todo.Dto.Request;
+using api.Features.Todo.Service;
 
 namespace Web_Minimal.Features.Todo
 {
