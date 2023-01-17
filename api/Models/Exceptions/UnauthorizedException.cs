@@ -12,8 +12,7 @@ public class UnauthorizedException : Exception
     {
     }
 
-    public UnauthorizedException(OauthErrorCode errorCode)
-        : base(errorCode.GetDescription())
+    public UnauthorizedException(OauthErrorCode errorCode) : base(errorCode.GetDescription())
     {
         ErrorCode = errorCode.GetNameToSnakeCase();
     }

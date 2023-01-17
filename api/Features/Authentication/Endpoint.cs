@@ -1,8 +1,7 @@
+using System.Text;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
-using System.Text;
 using api.Features.Authentication.Dto;
-
 using Microsoft.IdentityModel.Tokens;
 
 namespace api.Features.Authentication

@@ -1,4 +1,4 @@
-namespace Api.Models;
+namespace api.Models;
 
 public class AppSettings
 {
