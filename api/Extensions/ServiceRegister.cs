@@ -1,5 +1,5 @@
-using api.Features.Account.Service;
-using api.Features.Todo.Service;
+using api.Features.Account;
+using api.Features.Todo;
 
 namespace Microsoft.Extensions.DependencyInjection;
 

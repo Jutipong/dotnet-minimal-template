@@ -1,8 +1,7 @@
-using System.Net;
 using api.Compatible.Helpers;
-using api.Compatible.Models;
-using api.Compatible.Models.Exceptions;
+using api.Models.Exceptions;
 using Microsoft.AspNetCore.Diagnostics;
+using System.Net;
 
 namespace Microsoft.AspNetCore.Builder;
 

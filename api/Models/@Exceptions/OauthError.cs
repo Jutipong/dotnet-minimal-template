@@ -1,6 +1,6 @@
 ﻿using api.Compatible.Helpers;
 
-namespace api.Compatible.Models;
+namespace api.Models.@Exceptions;
 
 public enum OauthErrorCode
 {

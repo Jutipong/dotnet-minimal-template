@@ -1,9 +1,7 @@
-﻿using api.Features.Account.Service;
-using static api.Features.Account.Dto.Request;
+using api.Models.Account;
 
-namespace Web_Minimal.Features.Account;
-
-public class Endpoint : ICarterModule
+namespace api.Features.Account;
+public class AccountEndpoint : ICarterModule
 {
     public void AddRoutes(IEndpointRouteBuilder app)
     {
@@ -15,7 +13,7 @@ public class Endpoint : ICarterModule
         g.MapDelete("/delete/{id}", Delete);
     }
 
-    private IResult Create(ILogger<Endpoint> _log, IAccountService service, CreateAccount create)
+    private IResult Create(ILogger<Endpoint> _log, IAccountService service, Dto.CreateAccount create)
     {
         _log.LogInformation("params: {@Create}", create);
         var result = service.Create(create);
@@ -28,13 +26,13 @@ public class Endpoint : ICarterModule
         return Results.Ok(result);
     }
 
-    private IResult Update(IAccountService service, UpdateAccount update)
+    private IResult Update(IAccountService service, Dto.UpdateAccount update)
     {
         return Results.Ok(service.Update(update));
     }
 
     private IResult Delete(IAccountService service, int id)
     {
-        return Results.Ok(service.Delete(new DeleteAccount { Id = id }));
+        return Results.Ok(service.Delete(new Dto.DeleteAccount { Id = id }));
     }
 }

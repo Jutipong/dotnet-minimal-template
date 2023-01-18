@@ -1,4 +1,4 @@
-﻿namespace api.Compatible.Models.Exceptions;
+﻿namespace api.Models.@Exceptions;
 
 public class NotFoundException : Exception
 {

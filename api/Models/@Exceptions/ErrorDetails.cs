@@ -1,6 +1,6 @@
 ﻿using System.Text.Json.Serialization;
 
-namespace api.Compatible.Models;
+namespace api.Models.@Exceptions;
 
 public class ErrorDetails
 {

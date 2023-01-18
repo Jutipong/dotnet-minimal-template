@@ -1,4 +1,4 @@
-using api.Features.Authentication.Dto;
+using api.Models.Authentication;
 using Microsoft.IdentityModel.Tokens;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
@@ -17,7 +17,7 @@ public class Endpoint : ICarterModule
         g.MapGet("/ceo", [Authorize(Roles = "ceo")] () => "CEO");
     }
 
-    private IResult Login(AppSettings _appSettings, Request.Login user)
+    private IResult Login(AppSettings _appSettings, Dto.Login user)
     {
         var users = new List<string> { "admin", "ceo" };
 

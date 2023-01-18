@@ -1,4 +1,4 @@
-﻿namespace api.Features.Todo.Dto;
+namespace api.Models.Todo;
 
 public class Response
 {

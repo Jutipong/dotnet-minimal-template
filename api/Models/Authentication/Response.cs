@@ -1,4 +1,4 @@
-namespace api.Features.Authentication.Dto;
+namespace api.Models.Authentication;
 
 public class Response
 {

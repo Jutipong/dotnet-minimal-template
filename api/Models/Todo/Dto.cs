@@ -1,6 +1,6 @@
-﻿namespace api.Features.Todo.Dto;
+namespace api.Models.Todo;
 
-public class Request
+public class Dto
 {
     public class CreateTodo
     {

@@ -1,6 +1,13 @@
-﻿using api.Features.Account.Dto;
+using api.Models.Account;
 
-namespace api.Features.Account.Service;
+namespace api.Features.Account;
+
+public interface IAccountService
+{
+    public JsonResponse<Response.Create>? Create(Dto.CreateAccount create);
+    public JsonResponse<Response.Update> Update(Dto.UpdateAccount update);
+    public JsonResponse<Response.Delete> Delete(Dto.DeleteAccount delete);
+}
 
 public class AccountService : IAccountService
 {
@@ -8,10 +15,10 @@ public class AccountService : IAccountService
 
     public AccountService(ILogger<AccountService> log)
     {
-        _log = log;
+        this._log = log;
     }
 
-    public JsonResponse<Response.Create>? Create(Request.CreateAccount create)
+    public JsonResponse<Response.Create>? Create(Dto.CreateAccount create)
     {
         _log.LogInformation("============= start service {@Create} ===============", create);
 
@@ -29,7 +36,7 @@ public class AccountService : IAccountService
         return result;
     }
 
-    public JsonResponse<Response.Update> Update(Request.UpdateAccount update)
+    public JsonResponse<Response.Update> Update(Dto.UpdateAccount update)
     {
         return new JsonResponse<Response.Update>
         {
@@ -38,7 +45,7 @@ public class AccountService : IAccountService
         };
     }
 
-    public JsonResponse<Response.Delete> Delete(Request.DeleteAccount delete)
+    public JsonResponse<Response.Delete> Delete(Dto.DeleteAccount delete)
     {
         return new JsonResponse<Response.Delete> { Datas = new Response.Delete { Id = delete.Id } };
     }
